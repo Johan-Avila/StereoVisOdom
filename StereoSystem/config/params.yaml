@@ -1,0 +1,69 @@
+stereo_vis_odom:
+  topics:
+    img0: "stereo_dfm27uro135ml/cam0/image_raw"
+    img1: "stereo_dfm27uro135ml/cam1/image_raw"
+
+  orb:
+    nfeatures: 1500
+    scaleFactor: 1.2
+    nlevels: 1
+    edgeThreshold: 31
+    firstLevel: 0
+    WTA_K: 4
+    scoreType: 0
+    patchSize: 31
+    fastThreshold: 7
+
+  bf:
+    normType: 7
+    crossCheck: True
+
+  filters:
+    StereoGeometry:
+      max_u: 100.0
+      min_u: 3.0
+      max_v: 3.0
+
+  solvePnPRansac:
+    useExtrinsicGuess: False
+    iterationsCount: 100
+    reprojectionError: 2.0
+    confidence: 0.99
+    flags: 2
+
+  stereoCalibration:
+    size:
+      Width: 1024
+      Height: 768
+
+    matrixProjection:
+      mp0:
+        [
+          504.59056,
+          0.,
+          505.99393,
+          0.,
+          0.,
+          504.59056,
+          440.19245,
+          0.,
+          0.,
+          0.,
+          1.,
+          0.,
+        ]
+      mp1:
+        [
+          504.59056,
+          0.,
+          505.99393,
+          -100.02933,
+          0.,
+          504.59056,
+          440.19245,
+          0.,
+          0.,
+          0.,
+          1.,
+          0.,
+        ]

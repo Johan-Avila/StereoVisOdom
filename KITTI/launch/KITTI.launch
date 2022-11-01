@@ -1,0 +1,11 @@
+<launch>
+
+    <arg name="project" default="stereo_vis_odom" />
+
+    <arg name="sequences" />
+
+    <rosparam file="$(find stereo_vis_odom)/KITTI/config/params_$(arg sequences).yaml" command="load" />
+
+    <node pkg="$(arg project)" type="$(arg project)_KITTI" name="$(arg project)_KITTI" output="screen" respawn="true" />
+
+</launch>
